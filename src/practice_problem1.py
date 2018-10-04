@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  IMPLEMENTING CLASSES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jacob Bowman.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -39,9 +39,9 @@ def main():
     # UN-comment tests as you work the problems.
     ####################################################################
 
-#     run_test_init()
-#     run_test_append_string()
-#     run_test_double()
+    run_test_init()
+    run_test_append_string()
+    run_test_double()
 #     run_test_shrink()
 #     run_test_double_then_shrink()
 #     run_test_reset()
@@ -94,7 +94,7 @@ class Box(object):
           :type volume: int
         """
         # --------------------------------------------------------------
-        # TODO: 2. Implement and test this function.
+        # DONE: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -102,6 +102,11 @@ class Box(object):
         #    DIFFICULTY:      3
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
+        self.volume = volume
+        self.contents = contents
+        if len(self.contents) > self.volume:
+            self.contents = str()
+        self.extra = str()
 
     def append_string(self, additional_contents):
         """
@@ -156,6 +161,17 @@ class Box(object):
         #       Read_this_ONLY_when_asked_Part_2.txt
         #    and continue working on the problem.
         # --------------------------------------------------------------
+        totallen = len(self.contents) + len(additional_contents)
+        if totallen > self.volume:
+            n = len(additional_contents) - (totallen - self.volume)
+            for k in range(n):
+                self.contents = self.contents + additional_contents[k]
+            for k in range(n + 1):
+                self.extra = self.extra + str(additional_contents[k + n])
+            return self.extra
+        else:
+            self.contents = self.contents + additional_contents
+            return self.extra
 
     def double(self):
         """
@@ -203,6 +219,9 @@ class Box(object):
         # FOR FULL CREDIT, YOUR SOLUTION MUST BE NO MORE THAN
         #    ** TWO **   LINES OF CODE.
         ################################################################
+        self.contents = self.contents * 2
+        return self.extra
+
 
     def shrink(self, new_volume):
         """
@@ -251,6 +270,8 @@ class Box(object):
         # IMPORTANT: Write a solution to this problem in pseudo-code,
         # and THEN translate the pseudo-code to a solution.
         # --------------------------------------------------------------
+        self.contents = 2 * self.contents
+
 
     def double_then_shrink(self, new_volume):
         """
