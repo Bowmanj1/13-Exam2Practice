@@ -104,7 +104,6 @@ class Box(object):
         # --------------------------------------------------------------
 
         self.volume = volume
-        self.yut = contents
         self.contents = contents
         if len(self.contents) > self.volume:
             self.contents = str()
@@ -221,6 +220,7 @@ class Box(object):
         # FOR FULL CREDIT, YOUR SOLUTION MUST BE NO MORE THAN
         #    ** TWO **   LINES OF CODE.
         ################################################################
+        self.append_string(self.contents)
 
     def shrink(self, new_volume):
         """
