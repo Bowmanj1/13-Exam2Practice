@@ -99,9 +99,10 @@ def practice_problem2a(sequence, delta):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ####################################################################
-    for k in range(len(sequence)):
-        sequence[k] = sequence[k] + delta
-    return sequence
+    bean = sequence
+    for k in range(len(bean)):
+        bean[k] = bean[k] + delta
+    return bean
 
 
 
@@ -190,17 +191,22 @@ def practice_problem2b(sequence):
       :type sequence [str]
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
-    new = str()
-    for k in range(len(sequence)):
-        new = new + sequence[k]
-    return new
+    yewt = str()
+    yote = sequence
+    for k in range(len(yote)):
+        seqq = yote[k]
+        if len(seqq) > 0:
+            yewt = yewt + seqq[0]
+        else:
+            yewt = yewt
+    return yewt
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
